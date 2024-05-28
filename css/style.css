@@ -1,0 +1,75 @@
+/* Stilizacija za header */
+.header {
+    background-color: #000;
+    padding: 10px 0;
+    position: relative;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .navbar-brand .logo {
+    height: 50px; /* Podesite visinu logotipa prema potrebi */
+}
+
+.header .navbar-nav .nav-item {
+    margin-right: 15px;
+}
+
+.header .nav-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.header .nav-link:hover {
+    color: #ccc; /* Podesite boju prilikom prelaska mišem preko linka */
+}
+.col-6{
+   
+}
+#kartice{
+    height: 270px; /* Postavite visinu kartice */
+    width: 300px; /* Postavite širinu kartice */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.card-button {
+    position: absolute; /* Omogućava apsolutno pozicioniranje */
+    bottom: 10px; /* Postavite udaljenost od dna kartice */
+    left: 50%; /* Postavite horizontalno poravnanje na sredinu */
+    transform: translateX(-50%); /* Centrirajte horizontalno */
+}
+#nsl{
+    display: flex;
+    justify-content: center;
+}
+.card-button {
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Postavite dugmad na dno kartice */
+}
+#tabela{
+
+}
+#pocetna {
+    display: block; /* Postavite sliku kao blok element */
+    margin: 0 auto; /* Postavite automatski margini na levo i desno da bi centrirali sliku */
+}
+footer {
+    color: #ffffff; /* Bela boja teksta */
+    padding: 20px 0; /* Dodajte padding na vrhu i dnu futera */
+    text-align: center; /* Centrirajte tekst */
+    width: 3000px;
+    background-color: #000;
+}
+
+footer p {
+    margin: 0; /* Uklonite margine oko paragrafa */
+}
