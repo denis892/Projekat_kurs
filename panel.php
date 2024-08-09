@@ -24,11 +24,11 @@ $sql_polaznici = "SELECT * FROM korisnici WHERE tip_korisnika = 'polaznik'";
 
 $result_polaznici = $conn->query($sql_polaznici);
 
-// Dodatni kod za dobijanje informacija o lekcijama
+
 $sql_lekcije = "SELECT * FROM lekcije";
 $result_lekcije = $conn->query($sql_lekcije);
 
-// Dodatni kod za dobijanje informacija o materijalima
+
 $sql_materijali = "SELECT * FROM materijali";
 $result_materijali = $conn->query($sql_materijali);
 ?>
@@ -61,9 +61,16 @@ $result_materijali = $conn->query($sql_materijali);
                         <li class="nav-item">
   <a class="nav-link" href="#" data-toggle="modal" data-target="#kontaktModal">Kontakt</a>
 </li>
-                        <<?php if(isset($_SESSION['user_id'])): ?>
+<li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#changeModal">Promeni podatke</a>
+                </li>
     <li class="nav-item">
-        <a class="nav-link" href="logout.php">Odjava</a>
+               <a class="nav-link" href="#" data-toggle="modal" data-target="#deleteModal">Obriši nalog</a>
+                    </li>
+
+                        <?php if(isset($_SESSION['user_id'])): ?>
+    <li class="nav-item">
+    <a class="nav-link" href="php/logout.php">Odjava</a>
     </li>
 <?php else: ?>
     <li class="nav-item">
@@ -169,6 +176,54 @@ $result_materijali = $conn->query($sql_materijali);
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+<div class="modal fade" id="changeModal" tabindex="-1" aria-labelledby="changeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changeModalLabel">Promena lozinke/email adrese</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="changeForm" method="post" action="php/promena_pod.php">
+          <div class="mb-3">
+            <label for="newEmail" class="form-label">Nova email adresa</label>
+            <input type="email" class="form-control" id="newEmail" name="newEmail">
+          </div>
+          <div class="mb-3">
+            <label for="currentPassword" class="form-label">Trenutna lozinka</label>
+            <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+          </div>
+          <div class="mb-3">
+            <label for="newPassword" class="form-label">Nova lozinka</label>
+            <input type="password" class="form-control" id="newPassword" name="newPassword">
+          </div>
+          <button type="submit" class="btn btn-primary">Sačuvaj promene</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Obriši nalog</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Da li ste sigurni da želite da obrišete svoj nalog?</p>
+                    <form id="deleteForm" action="php/brisanje_naloga.php" method="POST">
+                        <button type="submit" class="btn btn-danger">Obriši nalog</button>
+                        <div id="deleteMessage" class="mt-3"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 

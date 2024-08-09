@@ -58,20 +58,21 @@ $result = $conn->query($sql);
   <a class="nav-link" href="#" data-toggle="modal" data-target="#kontaktModal">Kontakt</a>
 </li>
                     <?php if(isset($_SESSION['user_id'])): ?>
-    <li class="nav-item">
-        <a class="nav-link" href="php\logout.php">Odjava</a>
-    </li>
-<?php else: ?>
-    <li class="nav-item">
-        <a class="nav-link" href="login.php">Prijava</a>
-    </li>
-<?php endif; ?>
+        <li class="nav-item">
+            <a class="nav-link" href="php\logout.php">Odjava</a>
+        </li>
+    <?php else: ?>
+        <li class="nav-item">
+            <a class="nav-link" href="login.php">Prijava</a>
+        </li>
+    <?php endif; ?>
 
                 </ul>
             </div>
         </nav>
     </div>
 </div>
+
 <div class="modal fade" id="kontaktModal" tabindex="-1" aria-labelledby="kontaktModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -91,6 +92,8 @@ $result = $conn->query($sql);
     </div>
   </div>
 </div>
+
+
 
 <div class="container mt-5">
     <h1>Informacije o kursevima</h1>
@@ -113,6 +116,7 @@ $result = $conn->query($sql);
         ?>
     </div>
 </div>
+
 </body>
 </html>
 
