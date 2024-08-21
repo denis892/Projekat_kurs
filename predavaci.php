@@ -81,11 +81,7 @@ session_start();
     <div class="row">
         <?php
         
-        $conn = new mysqli('localhost:3308', 'root', '', 'online_kurs');
-
-        if ($conn->connect_error) {
-            die("Konekcija nije uspela: " . $conn->connect_error);
-        }
+        include 'php/config.php';
 
         $sql = "SELECT p.ime, p.prezime, p.slika, p.obrazovanje, p.opis, k.naziv AS kurs_naziv 
         FROM predavaci p 

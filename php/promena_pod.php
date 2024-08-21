@@ -6,16 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$db_host = 'localhost:3308';
-$db_user = 'root';
-$db_password = '';
-$db_name = 'online_kurs';
-
-$conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'config.php';
 
 $currentPassword = $_POST['currentPassword'];
 $newEmail = $_POST['newEmail'];

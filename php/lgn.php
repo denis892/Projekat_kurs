@@ -7,18 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        
-        $db_host = 'localhost:3308';
-        $db_user = 'root';
-        $db_password = '';
-        $db_name = 'online_kurs';
-
-        $conn = new mysqli($db_host, $db_user, $db_password, $db_name);
-
-      
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        include 'config.php';
 
        
         $stmt = $conn->prepare("SELECT * FROM korisnici WHERE email = ?");
